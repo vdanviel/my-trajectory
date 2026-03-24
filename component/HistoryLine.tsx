@@ -1,4 +1,4 @@
-export default function HistoryLine({ text }) {
+export default function HistoryLine({ text } : {text: string | undefined}) {
   return (
     <div className="flex items-center gap-4">
       
