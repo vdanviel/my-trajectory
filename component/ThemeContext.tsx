@@ -8,7 +8,7 @@ interface ThemeContextType {
   secondary: string;
   fontColor: string;
   textColor: string;
-  companyImg: string | null;
+  companyImg: string | undefined;
   companyImgWidth: string;
   companyImgHeight: string;
 }
