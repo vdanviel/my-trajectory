@@ -47,6 +47,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
 export function useTheme() {
   const context = useContext(ThemeContext);
-  if (context === undefined) return null; // Evita erros durante o SSR/Build
+  if (context === undefined) return null;
   return context;
 }
