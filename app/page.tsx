@@ -1,65 +1,74 @@
-import Image from "next/image";
+'use client'
+
+import { useTheme } from "@/component/ThemeContext";
+import HistoryCard from "@/component/HistoryCard";
+import HistoryLine from "@/component/HistoryLine";
+import Introduction from "@/component/Introduction";
 
 export default function Home() {
+
+  const {companyImg, companyImgWidth, companyImgHeight} = useTheme();
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+      <div className="flex justify-center items-center m-5 flex-col">
+
+        <Introduction/>
+
+        <HistoryCard 
+        subtitle="2012 - 2016..."
+        text={"Minha curiosidade pela tecnologia começou cedo. Lembro da satisfação que sentia ao resolver um problema no computador da família ou instalar um mod novo em um jogo. Aquela facilidade natural com o digital me deu a certeza, ainda criança, de que esse era o meu mundo."} 
+        avatar={"/phases/children.png"}/>
+
+        <HistoryLine text={"Na minha adolescência..."}/>
+
+        <HistoryCard
+        subtitle="2017 - 2019"
+        text={"Na adolescência, essa curiosidade virou estudo. Ganhei meu primeiro desktop e, em vez de apenas usar, eu queria entender como ele funcionava por dentro. Montar e desmontar aquele PC foi minha primeira grande escola de lógica e paciência."}
+        avatar={"/phases/teenager.png"}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+
+        <HistoryLine text={"O sonho da faculdade..."}/>
+
+        <HistoryCard
+        subtitle="2020 - 2023"
+        text={"Depois de cursar Técnico em Informática no SENAC, percebi que queria seguir carreira como programador. Foi então que descobri o curso que faço hoje, e aquilo realmente me brilhou os olhos. Prestei o vestibular duas vezes, mas não consegui a aprovação. Na terceira tentativa, enfrentei um novo desafio: não tinha dinheiro para pagar a inscrição. Decidi então agir. Passei a vender capas de celular com um vendedor próximo de casa e, após algumas conversas, ele acreditou em mim e comprou as capas pelo valor necessário para que eu pudesse pagar o vestibular. Quando finalmente fui aprovado, a sensação foi indescritível. Foi um momento de muita felicidade e a confirmação de que todo esforço valeu a pena."}
+        avatar={"/phases/college.png"}
+        />
+
+        <HistoryLine text={"Primeiro emprego..."}/>
+
+        <HistoryCard
+        subtitle="2023 - 2024"
+        text={"Meu primeiro emprego como Back-end foi um divisor de águas. Senti um frio na barriga ao ver meu código sendo usado em sistemas reais de RH. Aprendi que programar é, acima de tudo, ouvir as pessoas e transformar necessidades em soluções que facilitem a vida delas."}
+        avatar={"/phases/first-programming-job.png"}
+        />
+
+        <HistoryLine text={"Experiência com estágio..."}/>
+
+        <HistoryCard
+        subtitle="2024 - 2025"
+        text={"Depois disso ingressei no meu primeiro estágio. Lá eu entendi o peso da responsabilidade ao lidar com sistemas usados por milhares de pessoas. Foi um período de muito crescimento técnico com Linux e Docker, mas também de aprender a ouvir feedbacks com humildade e foco total em quem está do outro lado da tela."}
+        avatar={"/phases/interning.png"}
+        />
+
+        <HistoryLine text={"E agora..."}/>
+
+        <div className="flex flex-col items-center justify-center">
+
+            <img
+              src={companyImg}
+              alt={"Imagem da empresa"}
+              width={companyImgWidth}
+              height={companyImgHeight}
+              className="m-5"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+            <p>Neste ano, eu sei qual é meu próximo passo!</p>
+
         </div>
-      </main>
-    </div>
+
+
+
+      </div>
   );
 }
