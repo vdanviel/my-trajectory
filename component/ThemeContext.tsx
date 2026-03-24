@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useMemo } from 'react';
+import React, { createContext, useContext, useMemo, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
 interface ThemeContextType {
@@ -15,7 +15,7 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
+function ThemeValuesWrapper({ children }: { children: React.ReactNode }) {
   const searchParams = useSearchParams();
 
   const themeValues = useMemo(() => ({
@@ -23,20 +23,30 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     secondary: searchParams.get('secondaryColor') || "#1f2937",
     fontColor: searchParams.get('fontColor') || "#ffffff",
     textColor: searchParams.get('textColor') || "#171717",
-    companyImg: searchParams.get('companyImg') || "/no-preview.png" as string,
+    companyImg: searchParams.get('companyImg') || "/no-preview.png",
     companyImgWidth: Number(searchParams.get('companyImgWidth')) || 150,
     companyImgHeight: Number(searchParams.get('companyImgHeight')) || 50,
   }), [searchParams]);
 
   return (
     <ThemeContext.Provider value={themeValues}>
-        {children}
+      {children}
     </ThemeContext.Provider>
+  );
+}
+
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  return (
+    <Suspense fallback={null}> 
+      <ThemeValuesWrapper>
+        {children}
+      </ThemeValuesWrapper>
+    </Suspense>
   );
 }
 
 export function useTheme() {
   const context = useContext(ThemeContext);
-  if (!context) throw new Error("useTheme must be used within a ThemeProvider");
+  if (context === undefined) return null; // Evita erros durante o SSR/Build
   return context;
 }
