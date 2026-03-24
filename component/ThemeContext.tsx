@@ -9,8 +9,8 @@ interface ThemeContextType {
   fontColor: string;
   textColor: string;
   companyImg: string | undefined;
-  companyImgWidth: string;
-  companyImgHeight: string;
+  companyImgWidth: number;
+  companyImgHeight: number;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -24,8 +24,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     fontColor: searchParams.get('fontColor') || "#ffffff",
     textColor: searchParams.get('textColor') || "#171717",
     companyImg: searchParams.get('companyImg') || "/no-preview.png" as string,
-    companyImgWidth: searchParams.get('companyImgWidth') || 150,
-    companyImgHeight: searchParams.get('companyImgHeight') || 50,
+    companyImgWidth: Number(searchParams.get('companyImgWidth')) || 150,
+    companyImgHeight: Number(searchParams.get('companyImgHeight')) || 50,
   }), [searchParams]);
 
   return (
