@@ -32,7 +32,7 @@ const Introduction = () => {
         </h2>
 
         <p
-          className="text-xl font-medium leading-relaxed mx-8"
+          className="text-xl leading-relaxed mx-8"
         >
           Bem-vindo à minha timeline! Este espaço é uma jornada visual pela minha história de vida. Aqui deixo os momentos marcantes, os desafios que enfrentei, as lições que aprendi e, acima de tudo, como superei cada obstáculo para chegar até aqui.
         </p>
