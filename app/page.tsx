@@ -63,7 +63,7 @@ export default function Home() {
               className="m-5"
             />
 
-            <p className="font-bold">Neste ano, eu sei qual é meu próximo passo!</p>
+            <p className="font-bold text-center">Neste ano, eu sei qual é meu próximo passo!</p>
 
         </div>
 
