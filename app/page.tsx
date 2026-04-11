@@ -7,7 +7,7 @@ import Introduction from "@/component/Introduction";
 
 export default function Home() {
 
-  const {companyImg, companyImgWidth, companyImgHeight} = useTheme();
+  const {companyImg, companyImgWidth, companyImgHeight, fontColor} = useTheme();
 
   return (
       <div className="flex justify-center items-center m-5 flex-col">
@@ -75,7 +75,12 @@ export default function Home() {
 
         </div>
 
-
+        <div className="mt-10 flex items-center flex-col">
+          <a className="font-bold text-center underline" style={{color:fontColor}} target="_blank" href="https://wa.me/5511997817780">(11) 99781-7780</a>
+          <p className="font-bold text-center" style={{color:fontColor}}>victordn.araujo@gmail.com</p>
+          <a className="font-bold text-center underline" style={{color:fontColor}} target="_blank" href="https://www.linkedin.com/in/vdanviel/">https://www.linkedin.com/in/vdanviel/</a>
+        </div>
+        
 
       </div>
   );
