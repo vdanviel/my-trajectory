@@ -51,14 +51,6 @@ export default function Home() {
         avatar={"/phases/interning.png"}
         />
 
-        <HistoryLine text="Evolução constante..."/>
-
-        <HistoryCard
-        subtitle="2025 - 2026..."
-        text={"Atualmente, no projeto em que estou atuando, trabalho diretamente com o checkout de um sistema de assinaturas de um cliente. Esse ponto é bastante relevante na minha trajetória. Antes da minha entrada, o checkout apresentava diversos problemas de performance. Era lento, não escalava bem e tinha dificuldade para processar um volume maior de assinaturas. Ele estava entrando problemas com a plataforma provedora. Após minha atuação e as melhorias implementadas, consegui aumentar a performance entre 40% e 60%. Isso gerou um impacto direto no negócio, pois hoje o sistema consegue processar mais de 60 mil assinaturas por mês de forma muito mais eficiente."}
-        avatar={"/phases/final-expression.png"}
-        />
-
         <HistoryLine text={"E agora..."}/>
 
         <div className="flex flex-col items-center justify-center">
